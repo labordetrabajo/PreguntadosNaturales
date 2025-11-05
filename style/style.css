@@ -1,0 +1,237 @@
+/* style/style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #72c943;
+    background-image: url('../imagenes/fondoquimica.png');  
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+
+.container {
+    background-color: #090c0a;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #ffffff;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #1f262d;
+    color: white;
+    padding: 12px 24px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #819c09;
+}
+
+.hidden {
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+
+.score, .timer {
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 20px;
+    color: #bde40f;
+}
+
+#answers {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+/* Logo opcional */
+.logo-container {
+    margin-top: 20px;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
+}
+
+
+        #modal {
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(4, 134, 11, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00000090;
+            font-size: 1.5em;
+            text-align: center;
+            z-index: 9999;
+            display: none;
+        }
+        #modal.show {
+            display: block;
+        }
+
+   /*FONDO ANIMADO*/
+
+
+/* --- Capa de fondo animada (overlay translúcido + burbujas) --- */
+.fondo-animado {
+  position: fixed;
+  inset: 0;                    /* top:0; right:0; bottom:0; left:0; */
+  width: 100%;
+  height: 100%;
+  pointer-events: none;        /* No bloquea clicks */
+  overflow: hidden;
+  z-index: 0;                  /* Detrás del contenido (ver .container abajo) */
+  /* Overlay translúcido para animar encima de tu FondoVertical.png */
+  background: linear-gradient(
+      -45deg,
+      rgba(114,201,67,0.12),
+      rgba(64,140,35,0.08),
+      rgba(40,90,20,0.06)
+    );
+  background-size: 400% 400%;
+  animation: gradiente 12s ease infinite;
+}
+
+@keyframes gradiente {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Burbujas */
+/* --- Capa de fondo animada (overlay translúcido + burbujas) --- */
+.fondo-animado {
+  position: fixed;
+  inset: 0;                    /* top:0; right:0; bottom:0; left:0; */
+  width: 100%;
+  height: 100%;
+  pointer-events: none;        /* No bloquea clicks */
+  overflow: hidden;
+  z-index: 0;                  /* Detrás del contenido (ver .container abajo) */
+  /* Overlay translúcido para animar encima de tu FondoVertical.png */
+  background: linear-gradient(
+      -45deg,
+      rgba(114,201,67,0.12),
+      rgba(64,140,35,0.08),
+      rgba(40,90,20,0.06)
+    );
+  background-size: 400% 400%;
+  animation: gradiente 12s ease infinite;
+}
+
+@keyframes gradiente {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Burbujas */
+.fondo-animado .bubble {
+  position: absolute;
+  bottom: -140px;
+  background: rgb(91 241 0);
+  border-radius: 50%;
+  box-shadow: 0 6px 12px rgba(16, 233, 0, 0.363);
+  animation-name: rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+@keyframes rise {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-140vh) scale(0.6); opacity: 0; }
+}
+
+/* Aseguramos que tu contenido esté por encima del fondo animado */
+.container,
+#startScreen,
+#gameScreen,
+.dino-wrapper {
+  position: relative;
+  z-index: 5; /* mayor que .fondo-animado (0) */
+}
+
+/* El modal ya tenía z-index alto; lo dejamos */
+.modal {
+  z-index: 999;
+}
+#modal {
+  z-index: 9999;
+}
+
+
+#startScreen {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-volver {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    background-color: #1f262d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.btn-volver:hover {
+    background-color: #819c09;
+}

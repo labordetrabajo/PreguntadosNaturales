@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trivia Ciencias Naturales</title>
+  <link rel="stylesheet" href="./style/style.css" />
+  <script src="./js/script.js" defer></script>
+ <button class="btn-volver" onclick="location.href='../menu.html'">←</button>
+</head>
+<body>
+<div class="fondo-animado"></div>
+  <div class="container" id="startScreen">
+    <h1>Responde sobre Ciencias Naturales</h1>
+    <button class="btn" onclick="startGame()">Empezar a jugar</button>
+      <button class="btn" id="btnVolver" onclick="location.href='../menu.html'">Volver</button>
+  </div>
+
+  <div class="container hidden" id="gameScreen">
+    
+    <div class="score">Puntuación: <span id="score">0</span></div>
+    <div class="timer">Tiempo: <span id="timer">10</span>s</div>
+    <h2 id="question"></h2>
+    <div id="answers"></div>
+  </div>
+
+  <div id="modal"></div>
+</body>
+</html>
